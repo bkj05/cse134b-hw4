@@ -15,7 +15,7 @@ HTML form: https://bkj05-cse134b-hw4.netlify.app/form-no-js.html
 Enhanced form: https://bkj05-cse134b-hw4.netlify.app/form-with-js.html
 
 Netlify publishes the repository root with no build command. Submit the
-repository and website URLs in Gradescope after the remaining checks below.
+repository and website URLs in Gradescope. Verification results are recorded below.
 
 ## Parts 1 and 2
 
@@ -114,18 +114,12 @@ removes view-transition animations under `prefers-reduced-motion: reduce`.
   warning text, and focus color against their intended backgrounds exceeds
   6:1 in both themes.
 
-## Remaining deployment setting and browser check
+## Final manual confirmations
 
-- Turn off the **Powered by Netlify badge** in Netlify's **Project configuration
-  > General > Powered by Netlify badge**. Netlify currently adds its own
-  `/.netlify/scripts/hud` script to browser visits, including the otherwise
-  script-free HTML form. The repository itself contains no script in that page.
-  The connected management tools do not expose this toggle, and the dashboard
-  requires sign-in, so this setting is still pending.
-- Enable reduced motion in a desktop browser and confirm that the theme still
-  changes immediately. The reduced-motion branch passes isolated JavaScript
-  tests and the matching CSS is present; browser-level reduced-motion
-  emulation was not available in the testing controls.
+- Benjamin confirmed that he turned off the Powered by Netlify badge in the
+  Netlify project settings, removing the optional badge injection.
+- Benjamin enabled Reduce motion on his Mac, refreshed the deployed website,
+  and confirmed that the theme switches immediately without fading.
 
 The original HW3 `part1/` cheese exercise and the existing small experimental
 canvas/console scripts are retained from the copied portfolio. They are not

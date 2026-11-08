@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Projects - Benjamin Kettor Jr., UC San Diego computer science student building websites and data tools.">
+  <title>Projects | Benjamin Kettor Jr.</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+
+  <script src="assets/theme.js" defer></script>
+</head>
+<body class="projects-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <p><a href="index.html">Benjamin Kettor Jr.</a></p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="beyond-coding.html">Beyond Coding</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="experiments.html">Experiments</a></li>
+        <li><a href="form-no-js.html">Contact: HTML</a></li>
+        <li><a href="form-with-js.html">Contact: JavaScript</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" type="button" hidden>Switch to dark theme</button>
+  </header>
+  <main id="main">
+    <h1>Projects</h1>
+    <p>These examples explain what I am trying to solve, how I approached it, and what still needs work.</p>
+    <article id="esports" aria-labelledby="esports-heading">
+      <h2 id="esports-heading">Esports Model Grader</h2>
+      <section aria-labelledby="esports-problem">
+        <h3 id="esports-problem">Problem and intended users</h3>
+        <p>People comparing esports statistics need more context than a single number. This project explores presenting recent player results, matchup information, and head-to-head history together.</p>
+      </section>
+      <section aria-labelledby="esports-contribution">
+        <h3 id="esports-contribution">My contribution and decisions</h3>
+        <p>I have worked on the project interface and data workflow, including views for kills and headshots, recent-match windows, and matchup context. Clear labeling matters because a statistic can refer to one map or a two-map series.</p>
+        <svg width="280" height="125" viewBox="0 0 280 125" role="img" aria-labelledby="pipeline-title pipeline-desc">
+          <title id="pipeline-title">Conceptual statistics workflow</title>
+          <desc id="pipeline-desc">Match records are checked, then shown with context and limitations.</desc>
+          <rect x="8" y="18" width="80" height="85" fill="white" stroke="black"></rect>
+          <rect x="100" y="18" width="80" height="85" fill="white" stroke="black"></rect>
+          <rect x="192" y="18" width="80" height="85" fill="white" stroke="black"></rect>
+          <path d="M88 61h12m80 0h12" fill="none" stroke="black"></path>
+          <text x="16" y="50" font-size="12">Match</text><text x="16" y="68" font-size="12">records</text>
+          <text x="108" y="50" font-size="12">Check</text><text x="108" y="68" font-size="12">scope</text>
+          <text x="200" y="50" font-size="12">Show</text><text x="200" y="68" font-size="12">context</text>
+        </svg>
+        <p>This diagram describes the intended workflow; it is not an application screenshot.</p>
+      </section>
+      <section aria-labelledby="esports-limits">
+        <h3 id="esports-limits">Limits and next steps</h3>
+        <p>Old match records and incomplete headshot data have been challenges. I want the tool to make data freshness and coverage easier to see. A projection is uncertain and does not guarantee an outcome.</p>
+        <p><a href="https://github.com/bkj05/esports-model-grader-v1">View the public early-version repository</a>. This link points to an early public version, not the current private production code.</p>
+      </section>
+    </article>
+    <article aria-labelledby="portfolio-heading">
+      <h2 id="portfolio-heading">This portfolio</h2>
+      <h3>Problem and approach</h3>
+      <p>A potential client needs to understand my work without decoding a list of technologies. I planned six pages around background, project evidence, personal context, and a clear contact route.</p>
+      <p>This first version uses semantic HTML and native browser features. Styling can be added later while preserving the content and reading order.</p>
+      <h3>Current build milestone</h3>
+      <p><label for="page-progress">Planned HTML pages written:</label> <progress id="page-progress" value="6" max="6">6 of 6</progress> 6 of 6. This measures pages written, not completion of the entire homework or deployment.</p>
+      <h3>How these skills could help a client</h3>
+      <p>The same process can help a small organization turn scattered information into a clear site. The next step is to confirm content, review the pages, and test them on the intended devices.</p>
+      <p><a href="contact.html">Discuss a related project</a></p>
+    </article>
+  </main>
+  <footer>
+    <p>Benjamin Kettor Jr. | Computer Science, UC San Diego</p>
+    <p><a href="contact.html">Discuss a project</a> | <a href="https://github.com/bkj05">GitHub profile</a></p>
+    <p><small>Copyright 2026 Benjamin Kettor Jr.</small></p>
+  </footer>
+</body>
+</html>

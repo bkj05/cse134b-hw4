@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HTML Experiments - Benjamin Kettor Jr., UC San Diego computer science student building websites and data tools.">
+  <title>HTML Experiments | Benjamin Kettor Jr.</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/hello-world.js" defer></script>
+  <script src="assets/canvas.js" defer></script>
+  <script src="assets/theme.js" defer></script>
+</head>
+<body class="experiments-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header>
+    <p><a href="index.html">Benjamin Kettor Jr.</a></p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="beyond-coding.html">Beyond Coding</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="experiments.html" aria-current="page">Experiments</a></li>
+        <li><a href="form-no-js.html">Contact: HTML</a></li>
+        <li><a href="form-with-js.html">Contact: JavaScript</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" type="button" hidden>Switch to dark theme</button>
+  </header>
+  <main id="main">
+    <h1>HTML experiments</h1>
+    <p>This coursework lab demonstrates native media and experimental HTML elements. The sample media are created for this lab, not recordings of my church performances.</p>
+    <noscript><p>JavaScript is off. The portfolio still works. The canvas drawing and console greeting are the only demonstrations that need it.</p></noscript>
+    <section aria-labelledby="audio-heading">
+      <h2 id="audio-heading">Audio with a native player</h2>
+      <p>A generated three-second major chord demonstrates the audio element.</p>
+      <audio controls preload="none">
+        <source src="assets/chord.wav" type="audio/wav">
+        Your browser cannot play this audio. <a href="assets/chord.wav">Download the chord sample</a>.
+      </audio>
+      <p>Audio description: three synthesized notes sound together, hold briefly, and fade out. There is no speech.</p>
+    </section>
+    <section aria-labelledby="video-heading">
+      <h2 id="video-heading">Video with captions</h2>
+      <video controls preload="none" width="280" height="158" poster="assets/video-poster.svg">
+        <source src="assets/demo.mp4" type="video/mp4">
+        <track kind="captions" src="assets/demo.vtt" srclang="en" label="English" default>
+        Your browser cannot play this video. <a href="assets/demo.mp4">Download the video sample</a>.
+      </video>
+      <p>Transcript: an original generated test pattern moves for three seconds. Caption: HTML video demonstration. The video has no audio or spoken content.</p>
+    </section>
+    <section aria-labelledby="canvas-heading">
+      <h2 id="canvas-heading">Canvas and an inert template</h2>
+      <canvas id="practice-canvas" width="280" height="100" aria-label="Two outlined rectangles connected by a line">Two outlined rectangles connected by a line.</canvas>
+      <p>The drawing uses fewer than 15 lines of JavaScript. It demonstrates a canvas, with no event handlers or interaction.</p>
+      <template id="future-project-card">
+        <article><h3>Future project title</h3><p>Problem, contribution, evidence, and limits.</p></article>
+      </template>
+      <p>The template holds a possible future project structure in the source. It is deliberately not activated or inserted into the page.</p>
+    </section>
+    <section aria-labelledby="embed-heading">
+      <h2 id="embed-heading">An embedded page preview</h2>
+      <p>This iframe previews a local portfolio page. <a href="projects.html">Open Projects directly</a> for a full-size reading experience.</p>
+      <iframe src="projects.html#esports" title="Preview of Ben's Projects page" width="280" height="200" loading="lazy"></iframe>
+    </section>
+    <section aria-labelledby="math-heading">
+      <h2 id="math-heading">MathML extra credit</h2>
+      <p>Einstein's mass-energy equivalence relates energy, mass, and the speed of light:</p>
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+        <mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow>
+      </math>
+      <p>In plain text: E = m times c squared. E is energy, m is mass, and c is the speed of light.</p>
+      <p>Being part of a standard does not make a feature reliably available in every browser. MathML support was uneven for years: Firefox supported it, while many Chrome and Edge versions did not enable it by default. Support in Chrome and Edge from version 109 made native MathML more practical across major browsers.</p>
+      <p><a href="https://caniuse.com/mathml">Check the MathML browser-support table</a> (checked October 13, 2026).</p>
+    </section>
+    <section aria-labelledby="custom-heading">
+      <h2 id="custom-heading">Custom element and dialog demonstrations</h2>
+      <hello-world></hello-world>
+      <p>The hello-world element logs exactly <q>Hello World!</q> to the browser console when connected. It does not add, remove, or change any DOM content.</p>
+      <p>The ben-note element on <a href="index.html#approach-heading">Home</a> groups a project-planning note. Only CSS scoped to that element establishes its structure; it uses no JavaScript.</p>
+      <p>The following dialog is an inactive draft of a future confirmation. It is in the source but is not opened or controlled by JavaScript.</p>
+      <dialog aria-labelledby="confirmation-heading">
+        <h3 id="confirmation-heading">Project inquiry confirmation draft</h3>
+        <p>A connected form could show a confirmation here after a successful submission.</p>
+        <p>This homework form is not connected, so no message has been sent.</p>
+      </dialog>
+    </section>
+  </main>
+  <footer>
+    <p>Benjamin Kettor Jr. | Computer Science, UC San Diego</p>
+    <p><a href="contact.html">Discuss a project</a> | <a href="https://github.com/bkj05">GitHub profile</a></p>
+    <p><small>Copyright 2026 Benjamin Kettor Jr.</small></p>
+  </footer>
+</body>
+</html>

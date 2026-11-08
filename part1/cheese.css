@@ -1,0 +1,114 @@
+/* Benjamin Kettor Jr.
+   Repository: https://github.com/bkj05/cse134b-hw3 */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  background: #fff9ed;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #332719;
+  line-height: 1.75;
+}
+
+h1 {
+  margin-block: 0 1.5rem;
+  font-size: 3rem;
+}
+
+h2 {
+  margin-block: 2rem 1rem;
+  font-size: 1.8rem;
+  color: #332719;
+}
+
+.latin {
+  font-style: italic;
+}
+
+#warning {
+  padding: 1rem 1.25rem;
+  border-left: 0.25rem solid #8a3c00;
+  background: #ffe1bb;
+}
+
+blockquote {
+  margin: 1.75rem 0;
+  padding: 1rem 1.25rem;
+  border: 0.2rem solid #a36b25;
+  background: #fffefa;
+}
+
+a {
+  color: #7d3500;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  background: #ffe1bb;
+  text-decoration-thickness: 0.15em;
+}
+
+a:focus,
+input:focus,
+button:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid #1745a0;
+  outline-offset: 4px;
+}
+
+form {
+  margin-block: 2rem;
+  padding: 1.25rem;
+  border: 1px solid #a36b25;
+  background: #fffefa;
+}
+
+input, button, textarea, select {
+  max-width: 100%;
+  font: inherit;
+  color: inherit;
+}
+
+input, textarea, select {
+  padding: 0.5em 0.65em;
+  border: 1px solid #7b6242;
+  background: white;
+}
+
+button {
+  margin-block: 0.5rem;
+  padding: 0.5em 1em;
+  border: 1px solid #7d3500;
+  background: #7d3500;
+  color: white;
+}
+
+button:hover {
+  background: #512300;
+}
+
+/* This rule and the earlier h2 rule have the same specificity and origin.
+   Both set color. Because this rule comes later, its color wins in the cascade. */
+h2 {
+  color: #7d3500;
+}
+
+@media (max-width: 35rem) {
+  body {
+    padding-inline: 1rem;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  input:not([type="checkbox"]):not([type="radio"]) {
+    width: 100%;
+  }
+}

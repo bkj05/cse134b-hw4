@@ -1,0 +1,555 @@
+/* Benjamin Kettor Jr. | https://github.com/bkj05/cse134b-hw4
+   Shared presentation layer for the existing six-page HW2 portfolio. */
+
+:root {
+  --ink: #1b293b;
+  --muted: #4f5b6b;
+  --paper: #f6f5f1;
+  --surface: #ffffff;
+  --accent: #1745a0;
+  --accent-light: #e9effb;
+  --rule: #cbd1d9;
+  --focus: #974000;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --content-width: 70rem;
+  --space: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 1.5rem;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--ink);
+  text-decoration-thickness: 0.15em;
+}
+
+:is(a, button, input, textarea, select, summary, audio, video):focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 10;
+  top: 0.5rem;
+  left: 1rem;
+  padding: 0.5em 1em;
+  transform: translateY(-200%);
+  background: var(--surface);
+  border: 1px solid var(--ink);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Child combinator: style the shared page header, not nested article headers. */
+body > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding: var(--space) 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+body > header > p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+body > header > p > a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Descendant combinator: give every existing navigation link a usable target. */
+nav a {
+  display: block;
+  padding: 0.6em 0.75em;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+nav a:hover {
+  background: var(--accent-light);
+  text-decoration: underline;
+}
+
+/* Attribute selector: identify the current page without relying on color alone. */
+nav a[aria-current="page"] {
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 0.15em;
+}
+
+main {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-block: 3.5rem 4rem;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+h1, h2 {
+  font-family: var(--font-heading);
+}
+
+h1 {
+  max-width: 20ch;
+  margin: 0 0 1.5rem;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: -0.045em;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.8rem;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1.125rem;
+}
+
+p {
+  max-width: 70ch;
+  margin: 0 0 1.25rem;
+}
+
+/* Adjacent sibling combinator: make the existing page introduction distinct. */
+h1 + p {
+  max-width: 58ch;
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
+main > section,
+main > article {
+  margin-top: 2.75rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+
+main > article > section {
+  margin-block: 1.75rem;
+}
+
+li + li {
+  margin-top: 0.5rem;
+}
+
+nav li + li {
+  margin-top: 0;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+img, svg, video, canvas, iframe {
+  max-width: 100%;
+}
+
+img, video, canvas {
+  height: auto;
+}
+
+picture, img, video, canvas {
+  display: block;
+}
+
+picture, main img, main svg, video, canvas, iframe {
+  margin-block: 1.25rem;
+}
+
+audio {
+  display: block;
+  width: 100%;
+  max-width: 28rem;
+  margin-block: 1rem;
+}
+
+iframe {
+  width: 100%;
+  height: 20rem;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+ben-note {
+  display: block;
+  margin-block: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-left: 0.25rem solid var(--accent);
+  background: var(--accent-light);
+}
+
+ben-note p:last-child {
+  margin-bottom: 0;
+}
+
+fieldset {
+  min-width: 0;
+  margin: 1.5rem 0;
+  padding: var(--space);
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+legend, label {
+  font-weight: 650;
+}
+
+input, textarea, button, select {
+  font: inherit;
+  color: inherit;
+}
+
+input, textarea, select {
+  width: 100%;
+  max-width: 32rem;
+  padding: 0.65em 0.75em;
+  border: 1px solid var(--muted);
+  border-radius: 0.2rem;
+  background: var(--surface);
+}
+
+textarea {
+  display: block;
+  resize: vertical;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+button {
+  max-width: 100%;
+  padding: 0.65em 1.1em;
+  border: 1px solid var(--accent);
+  border-radius: 0.2rem;
+  background: var(--accent);
+  color: var(--surface);
+}
+
+/* Attribute selector: the original disconnected form stays clearly disabled. */
+button[disabled] {
+  border-color: var(--rule);
+  background: var(--accent-light);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+progress {
+  max-width: 100%;
+  accent-color: var(--accent);
+  vertical-align: middle;
+}
+
+math {
+  margin-block: 1.5rem;
+  font-size: 1.6rem;
+}
+
+body > footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.25rem 2rem;
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-block: 2rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+body > footer p {
+  margin: 0;
+}
+
+body > footer p:last-child {
+  grid-column: 1 / -1;
+}
+
+.home-page main,
+.contact-page main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
+}
+
+.home-page main > h1,
+.home-page main > p,
+.home-page main > section:last-child,
+.contact-page main > h1,
+.contact-page main > p {
+  grid-column: 1 / -1;
+}
+
+.home-page main > section > article {
+  padding: var(--space);
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+.home-page main > section > article h3 {
+  margin-top: 0;
+}
+
+.about-page main,
+.beyond-page main,
+.experiments-page main {
+  max-width: 53rem;
+}
+
+body > header,
+body > main,
+body > footer {
+  width: calc(100% - 3rem);
+}
+
+@media (max-width: 46rem) {
+  body > header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem 0.5rem;
+  }
+
+  nav a {
+    min-height: 2.75rem;
+    padding-block: 0.75em;
+  }
+
+  .home-page main,
+  .contact-page main,
+  body > footer {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-page main,
+  .contact-page main {
+    column-gap: 0;
+  }
+
+  main {
+    padding-block: 2.5rem 3rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  fieldset {
+    padding: 1rem;
+  }
+
+  body > header,
+  body > main,
+  body > footer {
+    width: calc(100% - 2rem);
+  }
+}
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  body > header,
+  body > main,
+  body > footer {
+    width: 100%;
+  }
+
+  .home-page main,
+  .contact-page main {
+    display: block;
+  }
+}
+
+/* HW4: an explicit site preference; no automatic system-theme override. */
+:root {
+  color-scheme: light;
+  --error: #9e202d;
+  --success: #24623d;
+  --warning: #6d4500;
+  --warning-bg: #fff0c7;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e7edf5;
+  --muted: #b9c5d5;
+  --paper: #111924;
+  --surface: #1b2736;
+  --accent: #a7c8ff;
+  --accent-light: #253a55;
+  --rule: #586779;
+  --focus: #ffc66b;
+  --error: #ffb6bf;
+  --success: #9ce1b4;
+  --warning: #ffdf9a;
+  --warning-bg: #493610;
+}
+
+/* Keep native hidden behavior even when a component has a display rule. */
+[hidden] {
+  display: none;
+}
+
+.theme-toggle {
+  padding: 0.55em 0.8em;
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--rule);
+  font-size: 0.875rem;
+}
+
+button:not([disabled]):hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.form-page main {
+  max-width: 48rem;
+}
+
+.inquiry-form {
+  max-width: 42rem;
+}
+
+.form-field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.45rem;
+  margin-block: 0 1.75rem;
+}
+
+.form-field:last-child {
+  margin-bottom: 0;
+}
+
+.form-field input,
+.form-field textarea {
+  max-width: none;
+  min-width: 0;
+  border-width: 2px;
+}
+
+.field-help {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.inquiry-form :required {
+  border-inline-start-width: 4px;
+}
+
+/* Only edited/submitted controls get native validation-state decoration. */
+.inquiry-form :is(input, textarea):user-invalid,
+.inquiry-form [aria-invalid="true"] {
+  border-color: var(--error);
+  border-style: dashed;
+}
+
+.inquiry-form :is(input, textarea):user-valid:not([aria-invalid="true"]) {
+  border-color: var(--success);
+}
+
+.feedback-area {
+  margin-block: 1.5rem;
+  padding: 1rem;
+  border: 2px solid var(--rule);
+  background: var(--surface);
+}
+
+.feedback-area h2 {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  letter-spacing: normal;
+}
+
+.feedback-area p:last-child,
+.feedback-area ul {
+  margin-bottom: 0;
+}
+
+#form-error-area li {
+  color: var(--error);
+}
+
+.length-warning {
+  color: var(--warning);
+  background: var(--warning-bg);
+  border-color: var(--warning);
+}
+
+/* The actual View Transition API animates the theme change, not a CSS-only effect. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}

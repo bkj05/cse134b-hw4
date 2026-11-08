@@ -553,3 +553,25 @@ button:not([disabled]):hover {
     animation: none;
   }
 }
+
+/* About-page portrait stays beside the introduction, then stacks on narrow screens. */
+.about-intro {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  align-items: start;
+  gap: 2rem;
+}
+
+.profile-photo {
+  width: 15rem;
+  height: auto;
+  margin: 0;
+  border: 1px solid var(--rule);
+  border-radius: 0.5rem;
+}
+
+@media (max-width: 46rem) {
+  .about-intro {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

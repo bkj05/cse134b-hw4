@@ -8,10 +8,14 @@ repositories and deployments are unchanged.
 
 Repository: https://github.com/bkj05/cse134b-hw4
 
-Deploy this repository as a separate static site. Publish the repository root,
-with no build command. Submit the repository URL and the new website URL in
-Gradescope. The separate HW4 deployment and final deployed-site checks are
-still pending.
+Website: https://bkj05-cse134b-hw4.netlify.app/
+
+HTML form: https://bkj05-cse134b-hw4.netlify.app/form-no-js.html
+
+Enhanced form: https://bkj05-cse134b-hw4.netlify.app/form-with-js.html
+
+Netlify publishes the repository root with no build command. Submit the
+repository and website URLs in Gradescope after the remaining checks below.
 
 ## Parts 1 and 2
 
@@ -80,15 +84,48 @@ removes view-transition animations under `prefers-reduced-motion: reduce`.
   unrecognized preferences, missing/working/throwing transition APIs, and
   reduced-motion fallback. These are code tests, not browser-emulation claims.
 
-## Checks still required on the deployed site
+## Checks completed on the deployed website
 
-- Repeat successful baseline and enhanced submissions with sample data.
-- Disable JavaScript and verify both forms retain native validation and POST;
-  confirm JS-only messages and theme controls remain hidden.
-- Check both forms at a narrow width (about 375px) and a desktop width.
-- In current desktop Chrome, observe the theme view transition and test reduced
-  motion; verify theme persistence on the deployment's own origin.
-- Verify keyboard focus and contrast in both themes, including error states.
+- All eight portfolio pages and referenced local assets load successfully.
+  Downloaded CSS, JavaScript, and media match the repository byte for byte.
+  Downloaded HTML matches after Netlify's extensionless-link rewriting.
+- The HTML form successfully posts all four fields to httpbin using the keyboard.
+- The enhanced form blocks missing fields, invalid email, and short comments.
+  A failed button attempt and a failed Enter attempt followed by corrections
+  produce a successful POST with exactly five expected history entries.
+- Both live forms were loaded in real Chrome frames at 375px and 1280px.
+  Their document scroll widths equal their available client widths: no
+  horizontal overflow. The enhanced form was also checked with scripts enabled
+  at both widths.
+- With all page scripts blocked by iframe sandboxing (forms and same-origin
+  access allowed, scripts not allowed), native required, email, and typed
+  minimum-length validation work. Both form versions successfully POST from
+  these frames using the keyboard. The enhanced form hides its counter and
+  theme control and retains native validation in this state.
+- The live counter shows the near-limit warning at 100 remaining and the
+  information message at zero remaining.
+- Keyboard theme switching works; dark theme persists through reload and
+  navigation on the deployment's own origin.
+- Chrome displayed the actual view-transition fade-in pseudo-element animation
+  during the theme change, with the configured 0.3-second duration.
+- Tab focus has a visible 3px outline throughout navigation, the theme button,
+  and form controls. Focus was checked in both themes.
+- Calculated contrast for the primary text, secondary text, links, error text,
+  warning text, and focus color against their intended backgrounds exceeds
+  6:1 in both themes.
+
+## Remaining deployment setting and browser check
+
+- Turn off the **Powered by Netlify badge** in Netlify's **Project configuration
+  > General > Powered by Netlify badge**. Netlify currently adds its own
+  `/.netlify/scripts/hud` script to browser visits, including the otherwise
+  script-free HTML form. The repository itself contains no script in that page.
+  The connected management tools do not expose this toggle, and the dashboard
+  requires sign-in, so this setting is still pending.
+- Enable reduced motion in a desktop browser and confirm that the theme still
+  changes immediately. The reduced-motion branch passes isolated JavaScript
+  tests and the matching CSS is present; browser-level reduced-motion
+  emulation was not available in the testing controls.
 
 The original HW3 `part1/` cheese exercise and the existing small experimental
 canvas/console scripts are retained from the copied portfolio. They are not

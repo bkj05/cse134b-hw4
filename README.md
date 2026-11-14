@@ -14,6 +14,4 @@ HTML form: https://bkj05-cse134b-hw4.netlify.app/form-no-js.html
 
 Enhanced form: https://bkj05-cse134b-hw4.netlify.app/form-with-js.html
 
-Netlify publishes the repository root with no build command. Submit the
-repository and website URLs in Gradescope. Verification results are recorded below.
 
